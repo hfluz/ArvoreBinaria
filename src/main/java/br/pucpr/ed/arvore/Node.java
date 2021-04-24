@@ -1,19 +1,19 @@
 package br.pucpr.ed.arvore;
 
-public class Node {
-    protected Integer dados;
+public class Node<T> {
+    protected T dados;
     protected Node filhoEsquerdo;
     protected Node filhoDireito;
 
-    public Node(Integer dados) {
+    public Node(T dados) {
         this.dados = dados;
     }
 
-    public Integer getDados() {
+    public T getDados() {
         return dados;
     }
 
-    public void setDados(Integer dados) {
+    public void setDados(T dados) {
         this.dados = dados;
     }
 

@@ -2,7 +2,7 @@ package br.pucpr.ed.arvore;
 
 import java.util.Objects;
 
-public class Pessoa {
+public class Pessoa implements Comparable {
     private Long cpf;
     private String nome;
 
@@ -49,5 +49,11 @@ public class Pessoa {
             "cpf=" + cpf +
             ", nome='" + nome + '\'' +
             '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Pessoa pessoa2 = (Pessoa) o;
+        return this.cpf.compareTo(pessoa2.getCpf());
     }
 }
