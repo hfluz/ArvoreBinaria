@@ -111,10 +111,11 @@ public class ArvoreBinaria<T extends Comparable> {
         if(noAtual == null){
             return profundidadeAtual;
         }
-        return Math.max(
-            calcularProfundidadeRecursivamente(noAtual.filhoEsquerdo, profundidadeAtual + 1),
-            calcularProfundidadeRecursivamente(noAtual.filhoDireito, profundidadeAtual + 1)
-        );
+        Integer profundidadeEsquerda = calcularProfundidadeRecursivamente(noAtual.filhoEsquerdo,
+            profundidadeAtual + 1);
+        Integer profundidadeDireita = calcularProfundidadeRecursivamente(noAtual.filhoDireito,
+            profundidadeAtual + 1);
+        return Math.max(profundidadeEsquerda, profundidadeDireita);
     }
 
     public Node<T> getRaiz() {
