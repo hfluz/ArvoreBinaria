@@ -78,6 +78,25 @@ public class ArvoreBinaria<T extends Comparable> {
 
     }
 
+    public T buscarMenorElemento(){
+        Node<T> menorElemento = buscarMenorElementoRecursivamente(raiz);
+        if(menorElemento != null){
+            return menorElemento.dados;
+        } else{
+            return null;
+        }
+    }
+
+    private Node<T> buscarMenorElementoRecursivamente(Node<T> noAtual) {
+        if(noAtual == null){
+            return null;
+        }
+        if(noAtual.filhoEsquerdo == null){
+            return noAtual;
+        }
+        return buscarMenorElementoRecursivamente(noAtual.filhoEsquerdo);
+    }
+
     public Node<T> getRaiz() {
         return raiz;
     }

@@ -19,6 +19,8 @@ public class MainApp {
         intTree.percorrerPreOrdem();
         System.out.println("\nPós-ordem: ");
         intTree.percorrerPosOrdem();
+        Integer menorElemento = intTree.buscarMenorElemento();
+        System.out.println("Menor elemento " + menorElemento);
 
         Pessoa pessoa = new Pessoa(12345678900L, "João das Neves");
         ArvoreBinaria<Pessoa> arvoreBinaria = new ArvoreBinaria<>(pessoa);
