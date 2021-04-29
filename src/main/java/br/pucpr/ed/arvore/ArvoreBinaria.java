@@ -97,6 +97,26 @@ public class ArvoreBinaria<T extends Comparable> {
         return buscarMenorElementoRecursivamente(noAtual.filhoEsquerdo);
     }
 
+    public Integer calcularProfundidade(){
+        if(raiz == null){
+            return null;
+        }
+        return Math.max(
+            calcularProfundidadeRecursivamente(raiz.filhoEsquerdo, 0),
+            calcularProfundidadeRecursivamente(raiz.filhoDireito, 0)
+        );
+    }
+
+    private Integer calcularProfundidadeRecursivamente(Node<T> noAtual, Integer profundidadeAtual){
+        if(noAtual == null){
+            return profundidadeAtual;
+        }
+        return Math.max(
+            calcularProfundidadeRecursivamente(noAtual.filhoEsquerdo, profundidadeAtual + 1),
+            calcularProfundidadeRecursivamente(noAtual.filhoDireito, profundidadeAtual + 1)
+        );
+    }
+
     public Node<T> getRaiz() {
         return raiz;
     }

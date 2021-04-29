@@ -21,6 +21,8 @@ public class MainApp {
         intTree.percorrerPosOrdem();
         Integer menorElemento = intTree.buscarMenorElemento();
         System.out.println("Menor elemento " + menorElemento);
+        Integer profundidade = intTree.calcularProfundidade();
+        System.out.println("Profundidade: " + profundidade);
 
         Pessoa pessoa = new Pessoa(12345678900L, "João das Neves");
         ArvoreBinaria<Pessoa> arvoreBinaria = new ArvoreBinaria<>(pessoa);
