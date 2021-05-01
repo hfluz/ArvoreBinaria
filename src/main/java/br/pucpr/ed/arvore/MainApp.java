@@ -11,6 +11,14 @@ public class MainApp {
         intTree.adicionar(35);
         intTree.adicionar(98);
         intTree.adicionar(1);
+        intTree.imprimirArvore(10);
+        intTree.excluir(35);
+        intTree.imprimirArvore(10);
+        intTree.excluir(80);
+        intTree.imprimirArvore(10);
+        intTree.excluir(50);
+        intTree.imprimirArvore(10);
+
         Integer elemento = intTree.buscar(29);
         System.out.println("Elemento buscado: " + elemento);
         System.out.println("Em ordem: ");
@@ -32,6 +40,6 @@ public class MainApp {
         arvoreBinaria.adicionar(new Pessoa(51276497052L, "Humberto"));
         System.out.println(arvoreBinaria.buscar(new Pessoa(51276497059L)));
         System.out.println("Impressão em Árvore: ");
-        arvoreBinaria.imprimirArvore();
+        arvoreBinaria.imprimirArvore(20);
     }
 }

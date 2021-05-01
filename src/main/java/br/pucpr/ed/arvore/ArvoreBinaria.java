@@ -57,7 +57,36 @@ public class ArvoreBinaria<T extends Comparable> {
     }
 
     public void excluir(T dados) {
+        raiz = excluirRecursivamente(raiz, dados);
+    }
 
+    private Node<T> excluirRecursivamente(Node<T> noAtual, T dados){
+        if(noAtual == null){
+            return null;
+        }
+        int resultado = dados.compareTo(noAtual.dados);
+        if(resultado == 0){ // elemento encontrado
+            int quantidadeFilhos = noAtual.getQuantidadeFilhos();
+            switch (quantidadeFilhos){
+                case 0: // caso 1 - nenhum filho
+                    return null;
+                case 1: // caso 2 - 1 filho
+                    return noAtual.filhoEsquerdo != null ? noAtual.filhoEsquerdo : noAtual.filhoDireito;
+//                    if(noAtual.filhoEsquerdo != null){
+//                        return noAtual.filhoEsquerdo;
+//                    } else{
+//                        return noAtual.filhoDireito;
+//                    }
+                default: // caso 3 - 2 filhos
+                    adicionarRecursivamente(noAtual.filhoEsquerdo, noAtual.filhoDireito);
+                    return noAtual.filhoEsquerdo;
+            }
+        } else if (resultado < 0){
+            noAtual.filhoEsquerdo = excluirRecursivamente(noAtual.filhoEsquerdo, dados);
+        } else {
+            noAtual.filhoDireito = excluirRecursivamente(noAtual.filhoDireito, dados);
+        }
+        return noAtual;
     }
 
     public void percorrerEmOrdem() {
